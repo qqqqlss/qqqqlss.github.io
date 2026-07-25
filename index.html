@@ -63,7 +63,12 @@
   .intro .lead{display:block;font-size:20px;font-weight:700;letter-spacing:-0.4px;line-height:1.5;margin-bottom:14px;color:var(--ink)}
 
   /* ---------- hook (header pitch) ---------- */
-  .hook{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+  .tagline{
+    margin-top:16px;font-size:15.5px;line-height:1.75;color:var(--ink);
+    border-left:3px solid var(--accent);padding-left:16px;
+  }
+  .tagline strong{font-weight:700;color:var(--accent)}
+
   .hook-item{margin-bottom:14px}
   .hook-item:last-child{margin-bottom:0}
   .hk-t{font-size:17.5px;font-weight:700;letter-spacing:-0.3px;line-height:1.5}
@@ -74,15 +79,27 @@
   .hook-item li::before{content:"·";position:absolute;left:4px;color:var(--accent);font-weight:700}
   .hook-item li strong{color:var(--ink);font-weight:700}
 
+  /* ---------- core competency ---------- */
+  .core{display:grid;grid-template-columns:1fr 1fr;gap:14px 22px}
+  .core-item{display:flex;flex-direction:column;gap:3px}
+  .core-item .ct{font-size:13.5px;font-weight:700;letter-spacing:-0.2px;display:flex;align-items:center;gap:7px}
+  .core-item .ct::before{content:"";width:5px;height:5px;border-radius:1px;background:var(--accent);flex:0 0 5px}
+  .core-item .cd{font-size:13px;color:var(--muted);line-height:1.6;padding-left:12px}
+  .core-item .cd strong{color:var(--ink);font-weight:700}
+
   /* ---------- section ---------- */
-  section{margin-top:52px}
+  section{margin-top:34px}
   .sec-head{
     display:flex;align-items:baseline;gap:14px;
-    margin-bottom:22px;
+    margin-bottom:13px;
   }
   .sec-head h2{
-    font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;
-    color:var(--accent);font-family:var(--mono);white-space:nowrap;
+    font-size:21px;font-weight:700;letter-spacing:-0.4px;
+    color:var(--ink);white-space:nowrap;display:flex;align-items:baseline;gap:9px;
+  }
+  .sec-head h2 .en-sub{
+    font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:1.6px;
+    text-transform:uppercase;color:var(--accent);
   }
   .sec-head .rule{flex:1;height:1px;background:var(--line)}
 
@@ -111,7 +128,8 @@
   .bullets strong{font-weight:700}
 
   /* ---------- feature groups ---------- */
-  .subhead{font-size:12px;font-weight:500;letter-spacing:1.5px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;margin:26px 0 16px;display:flex;align-items:center;gap:12px}
+  .subhead{font-size:14.5px;font-weight:700;letter-spacing:-0.2px;color:var(--accent);margin:30px 0 16px;display:flex;align-items:center;gap:12px}
+  .subhead::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--accent);flex:0 0 3px}
   .subhead::after{content:"";flex:1;height:1px;background:var(--line)}
   .groups{display:grid;grid-template-columns:1fr;gap:14px}
   .group{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--bg)}
@@ -176,6 +194,8 @@
     .groups{grid-template-columns:1fr}
     .misc-grid{grid-template-columns:1fr}
     .card{padding:20px 18px 6px}
+    .core{grid-template-columns:1fr}
+    .tagline{font-size:14.5px}
   }
 
   /* ---------- print ---------- */
@@ -184,7 +204,8 @@
     .wrap{max-width:100%;padding:0}
     .card,.group,.misc-box,.stat{border-color:#ddd;box-shadow:none}
     section{margin-top:26px}
-    .group,.deep-item,.misc-box,.stat{break-inside:avoid}
+    .group,.deep-item,.misc-box,.stat,.core-item{break-inside:avoid}
+    header{break-inside:avoid}
     footer{display:none}
     a{color:var(--ink)}
   }
@@ -204,11 +225,20 @@
       <a href="https://play.google.com/store/apps/details?id=kr.mappers.atlantruck&hl=ko" target="_blank" rel="noopener">▶ AtlanTruck on Google Play</a>
     </div>
     <div class="affil"><b>맵퍼스</b> LaaS플랫폼개발팀 · 전임연구원<span class="yr-inline">2023.02 ~ 현재</span></div>
+    <div class="tagline">
+      가입자 21만 화물차 내비게이션을 <strong>3년간 혼자 책임지며, 매출 0원 앱을 수익이 나는 플랫폼으로</strong> 만든 개발자입니다.
+      기능을 만드는 데서 멈추지 않고 수익·안정성·외부 연동까지 서비스가 굴러가는 데 필요한 일을 직접 찾아 끝냅니다.
+    </div>
+  </header>
+
+  <!-- ===== KEY ACHIEVEMENTS ===== -->
+  <section>
+    <div class="sec-head"><h2>주요 성과 <span class="en-sub">Key Achievements</span></h2><div class="rule"></div></div>
     <div class="hook">
       <div class="hook-item">
         <div class="hk-t">입사 1년 차에 앱 전체를 위임받아 <strong>3년간 단독 개발</strong></div>
         <ul>
-          <li><strong>DAU 6,000 → 15,000</strong> 달성</li>
+          <li><strong>가입자 21만</strong> · <strong>DAU 6,000 → 15,000</strong> 달성</li>
         </ul>
       </div>
       <div class="hook-item">
@@ -219,24 +249,102 @@
         </ul>
       </div>
       <div class="hook-item">
-        <div class="hk-t">무료 앱 → <strong>수익화</strong> <span class="paren">(연 약 2.7억 원)</span></div>
+        <div class="hk-t">무료 앱 → <strong>수익화</strong> <span class="paren">(구독 · 광고 · 금융 제휴 3개 수익원)</span></div>
         <ul>
-          <li><strong>연/월 구독 상품</strong> — 유료 회원 1,500명 · 연매출 약 2억 원, 자체 PG(카드·계좌)로 스토어 수수료 회피</li>
-          <li><strong>광고</strong> — 월 약 600만 원 · 배너·오퍼월·리워드 비디오 (TNK·애드팝콘) + 자사 커스텀 광고</li>
+          <li><strong>연/월 구독 상품</strong> — 유료 회원 1,500명 확보, 자체 PG(카드·계좌)로 스토어 수수료 회피</li>
+          <li><strong>광고</strong> — 배너·오퍼월·리워드 비디오 (TNK·애드팝콘) + 자사 커스텀 광고로 신규 수익원 확보</li>
           <li><strong>금융 상품</strong> — 현대커머셜 등 보험·대출사 제휴</li>
         </ul>
       </div>
     </div>
-  </header>
+  </section>
+
+  <!-- ===== CORE COMPETENCY ===== -->
+  <section>
+    <div class="sec-head"><h2>핵심 역량 <span class="en-sub">Core Competency</span></h2><div class="rule"></div></div>
+    <div class="core">
+      <div class="core-item">
+        <div class="ct">단독 오너십</div>
+        <div class="cd">DAU 1.5만 앱의 설계·개발·배포·운영을 3년간 혼자 — <strong>170회+ 무중단 배포</strong></div>
+      </div>
+      <div class="core-item">
+        <div class="ct">매출을 만드는 개발</div>
+        <div class="cd">결제·광고·제휴를 0에서 구축, <strong>자체 PG로 스토어 수수료까지 회피</strong>하는 수익 구조 판단</div>
+      </div>
+      <div class="core-item">
+        <div class="ct">개발자가 곧 창구</div>
+        <div class="cd">연동 인터페이스를 직접 설계하고 <strong>LG·CJ·현대 등 6개사 협의를 주도</strong></div>
+      </div>
+      <div class="core-item">
+        <div class="ct">Kotlin에서 멈추지 않음</div>
+        <div class="cd">C++/JNI·GPU 드라이버까지 내려가 <strong>메모리 버그·렌더링 크래시를 근본 해결</strong></div>
+      </div>
+      <div class="core-item">
+        <div class="ct">품질을 지표로 증명</div>
+        <div class="cd">모니터링·QA 자동화를 직접 구축 — <strong>크래시프리 99.0→99.8% · 평점 3.75→4.17</strong></div>
+      </div>
+      <div class="core-item">
+        <div class="ct">리스크 선제 대응</div>
+        <div class="cd">'30일 후 앱 삭제' 통보를 방어하고 <strong>정책 이슈로 인한 서비스 중단 0건</strong> 유지</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECH STACK ===== -->
+  <section>
+    <div class="sec-head"><h2>기술 스택 <span class="en-sub">Tech Stack</span></h2><div class="rule"></div></div>
+    <div class="stack-row">
+      <span class="k">Language</span>
+      <div class="tags">
+        <span class="tag">Kotlin</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">C++ (NDK)</span><span class="tag">JavaScript</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="k">Android</span>
+      <div class="tags">
+        <span class="tag">MVVM</span><span class="tag">DataBinding</span><span class="tag">Coroutines</span><span class="tag">ViewBinding</span><span class="tag">WebView·JS Bridge</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="k">Network</span>
+      <div class="tags">
+        <span class="tag">Retrofit</span><span class="tag">OkHttp (REST/WS)</span><span class="tag">Protocol Buffers</span><span class="tag">FCM</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="k">모니터링 / 운영</span>
+      <div class="tags">
+        <span class="tag">Crashlytics(+NDK)</span><span class="tag">Sentry</span><span class="tag">Android Vitals</span><span class="tag">Remote Config</span><span class="tag">Analytics (GA4)</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="k">QA / 테스트</span>
+      <div class="tags">
+        <span class="tag">Appium (UI 자동화)</span><span class="tag">debug report 분석</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="k">Native</span>
+      <div class="tags">
+        <span class="tag">C/C++ (NDK)</span><span class="tag">JNI</span><span class="tag">OpenGL ES (VBO)</span>
+      </div>
+    </div>
+    <div class="stack-row">
+      <span class="k">기타</span>
+      <div class="tags">
+        <span class="tag">AdPopcorn·Adiscope</span><span class="tag">Apache POI</span><span class="tag">OpenCV</span><span class="tag">MPAndroidChart</span>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== EXPERIENCE / MAIN PROJECT ===== -->
   <section>
-    <div class="sec-head"><h2>Experience</h2><div class="rule"></div></div>
+    <div class="sec-head"><h2>경력 <span class="en-sub">Experience</span></h2><div class="rule"></div></div>
 
     <div class="stats">
       <div class="stat"><div class="big">업계 2위</div><div class="lbl">화물 오더 수량 · 6개 플랫폼 연동으로 달성</div></div>
-      <div class="stat"><div class="big">연 2.7억</div><div class="lbl">직접 만든 수익 · 구독 약 2억 + 광고 약 7,200만</div></div>
-      <div class="stat"><div class="big">6K→15K</div><div class="lbl">DAU 2.5배 성장 · 안드로이드 단독 개발</div></div>
+      <div class="stat"><div class="big">0 → 유료화</div><div class="lbl">구독·광고·금융 제휴 3개 수익원을 직접 구축</div></div>
+      <div class="stat"><div class="big">가입자 21만</div><div class="lbl">DAU 6K→15K 2.5배 성장 · 안드로이드 단독 개발</div></div>
       <div class="stat"><div class="big">99.8%</div><div class="lbl">크래시프리율 99.0%→99.8% 개선 · QA 직접 구축</div></div>
     </div>
 
@@ -252,7 +360,7 @@
       <ul class="bullets">
         <li><strong>화물 오더 수량 업계 2위 달성</strong> — LG유플러스·CJ대한통운·현대커머셜 등 6개 화물 플랫폼을 연동해, 길안내 앱을 일감이 모이는 배차 허브로 확장</li>
         <li><strong>6개사가 따라 개발한 연동 인터페이스를 직접 설계</strong> — 연동 문서까지 만들고, 개발자가 곧 창구가 되어 협의·이슈 대응 주도</li>
-        <li><strong>연 약 2.7억 원의 수익을 직접 창출</strong> — 유료 구독(회원 1,500명·연 약 2억)과 광고(월 약 600만 원)를 0에서 구축, 현대커머셜 대출·보험 제휴로 다각화</li>
+        <li><strong>매출 0원 앱의 수익 구조를 직접 창출</strong> — 유료 구독(회원 1,500명)과 광고를 0에서 구축, 현대커머셜 대출·보험 제휴로 다각화</li>
         <li><strong>스토어 평점 3.75 → 4.17 · 데이터 기반 UX 개선</strong> — GA4 퍼널로 이탈 구간을 수치로 찾아내고, Remote Config·A/B 테스트로 검증한 뒤 배포</li>
         <li><strong>크래시프리율 99.0% → 99.8% 개선</strong> — Crashlytics·Sentry·Play Console 3중 모니터링과 Appium UI 자동화 테스트 체계를 직접 구축</li>
         <li><strong>입사 1년 차에 앱 전체를 위임받아 설계~배포 단독 담당</strong> — 3년간 170회 이상 무중단 배포</li>
@@ -281,7 +389,7 @@
           <div class="dt">무료 → 멤버십 구독제 <span class="role">유료 전환, 결제 라이프사이클 전체 구축</span><span class="type">신규 0→1</span></div>
           <div class="ba">
             <div class="b"><span class="ba-lbl">BEFORE</span>결제 기능이 없는 무료 앱 — 자체 매출 0원</div>
-            <div class="a"><span class="ba-lbl">AFTER</span><strong>유료 회원 1,500명 · 연매출 약 2억 원</strong> — 가입부터 해지까지 결제 전 과정을 0에서 구축</div>
+            <div class="a"><span class="ba-lbl">AFTER</span><strong>유료 회원 1,500명의 구독 서비스</strong> — 가입부터 해지까지 결제 전 과정을 0에서 구축</div>
           </div>
           <p>무료 앱에 <strong>구독 결제를 0에서 새로 구축해 유료 비즈니스 모델로 전환</strong>. 플레이스토어 인앱결제(수수료 15~30%) 대신 <strong>카드·계좌 자체 PG 직접결제를 구축해 매출 실수령을 극대화</strong> — 인앱결제도 별도 구현·테스트까지 마쳐 두 결제 체계를 모두 경험. 첫 가입 한달 무료·해지 신청/취소·탈퇴 연계 분기 등 가입~해지 시나리오와 결제수단 CRUD(카드 등록/변경/삭제·대표수단 상태 판정), 출금동의 인증, 현금영수증(소득공제/지출증빙) 발행까지 결제 라이프사이클 전체를 담당. 가입~해지 단계별 <strong>GA 퍼널 로깅으로 이탈 구간 측정</strong>까지 설계.</p>
           <div class="stack"><span>결제 상태머신</span><span>결제수단 CRUD</span><span>출금동의·현금영수증</span><span>결제 퍼널 GA 로깅</span></div>
@@ -290,7 +398,7 @@
           <div class="dt">광고 수익화 도입 <span class="role">미디에이션 연동 + SDK 안정화까지</span><span class="type">신규 0→1</span></div>
           <div class="ba">
             <div class="b"><span class="ba-lbl">BEFORE</span>광고 지면도, 광고 수익도 없던 앱</div>
-            <div class="a"><span class="ba-lbl">AFTER</span><strong>월 약 600만 원의 광고 수익원 확보</strong> — 광고사와의 협의 창구도 개발자가 직접 담당</div>
+            <div class="a"><span class="ba-lbl">AFTER</span><strong>매월 꾸준히 발생하는 광고 수익원 확보</strong> — 광고사와의 협의 창구도 개발자가 직접 담당</div>
           </div>
           <p>광고 수익원을 0에서 도입. <strong>AdPopcorn·Adiscope 미디에이션</strong>(AdMob·TNK·Vungle·Pangle·Max 등)을 직접 연동하고, 보상형 광고(시청 제한·프리로드·보상 처리)·오퍼월·첫/종료화면 광고를 구축. <strong>광고 업체와 직접 커뮤니케이션</strong>하며 연동 스펙 협의·이슈 대응·네트워크 추가/제거를 개발자가 창구가 되어 진행. 광고 네트워크 충돌 대응과 <strong>배너 프리로드 동시 로드 제한으로 광고 SDK발 OOM까지 직접 안정화</strong>, 배너별 GA 로그로 성과 측정.</p>
           <div class="stack"><span>AdPopcorn·Adiscope 미디에이션</span><span>보상형·오퍼월</span><span>업체 직접 커뮤니케이션</span><span>OOM 방어</span><span>광고 성과 GA 로그</span></div>
@@ -387,58 +495,27 @@
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- ===== TECH STACK ===== -->
-  <section>
-    <div class="sec-head"><h2>Tech Stack</h2><div class="rule"></div></div>
-    <div class="stack-row">
-      <span class="k">Language</span>
-      <div class="tags">
-        <span class="tag">Kotlin</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">C++ (NDK)</span><span class="tag">JavaScript</span>
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <h3>국군수도병원 — 서버 · 인프라 · 네트워크 운영</h3>
+          <div class="card-sub">정보체계운용병 (전산병) · 병역</div>
+        </div>
+        <div class="period">2017.06 ~ 2019.02</div>
       </div>
-    </div>
-    <div class="stack-row">
-      <span class="k">Android</span>
-      <div class="tags">
-        <span class="tag">MVVM</span><span class="tag">DataBinding</span><span class="tag">Coroutines</span><span class="tag">ViewBinding</span><span class="tag">WebView·JS Bridge</span>
-      </div>
-    </div>
-    <div class="stack-row">
-      <span class="k">Network</span>
-      <div class="tags">
-        <span class="tag">Retrofit</span><span class="tag">OkHttp (REST/WS)</span><span class="tag">Protocol Buffers</span><span class="tag">FCM</span>
-      </div>
-    </div>
-    <div class="stack-row">
-      <span class="k">모니터링 / 운영</span>
-      <div class="tags">
-        <span class="tag">Crashlytics(+NDK)</span><span class="tag">Sentry</span><span class="tag">Android Vitals</span><span class="tag">Remote Config</span><span class="tag">Analytics (GA4)</span>
-      </div>
-    </div>
-    <div class="stack-row">
-      <span class="k">QA / 테스트</span>
-      <div class="tags">
-        <span class="tag">Appium (UI 자동화)</span><span class="tag">debug report 분석</span>
-      </div>
-    </div>
-    <div class="stack-row">
-      <span class="k">Native</span>
-      <div class="tags">
-        <span class="tag">C/C++ (NDK)</span><span class="tag">JNI</span><span class="tag">OpenGL ES (VBO)</span>
-      </div>
-    </div>
-    <div class="stack-row">
-      <span class="k">기타</span>
-      <div class="tags">
-        <span class="tag">AdPopcorn·Adiscope</span><span class="tag">Apache POI</span><span class="tag">OpenCV</span><span class="tag">MPAndroidChart</span>
-      </div>
+
+      <ul class="bullets">
+        <li><strong>국방부 정기 보안감사 취약점 0건 달성</strong> — 감사 매뉴얼 기준으로 서버 취약점 점검·조치를 단독 수행</li>
+        <li><strong>원내 서버 · 인프라 단독 관리</strong> — PACS(의료영상)·의료정보·백신·홈페이지 등 민감 의료정보를 다루는 시스템</li>
+        <li><strong>NAC 정책 통합 관리 · 네트워크 장비 1,000대+ 규모 운영</strong> — 장비 설치·구성 포함</li>
+      </ul>
     </div>
   </section>
 
   <!-- ===== ETC ===== -->
   <section>
-    <div class="sec-head"><h2>Education &amp; Etc</h2><div class="rule"></div></div>
+    <div class="sec-head"><h2>학력 · 기타 <span class="en-sub">Education &amp; Etc</span></h2><div class="rule"></div></div>
     <div class="misc-grid">
       <div class="misc-box">
         <h4>학력</h4>
