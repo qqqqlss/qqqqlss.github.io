@@ -227,7 +227,7 @@
     <div class="affil"><b>맵퍼스</b> LaaS플랫폼개발팀 · 전임연구원<span class="yr-inline">2023.02 ~ 현재</span></div>
     <div class="tagline">
       가입자 21만 화물차 전용 내비게이션의 안드로이드 개발을 <strong>3년간 리딩</strong>해 왔습니다.
-      OpenGL 지도 렌더링과 C++ 경로 엔진부터 검색·경로 안내까지 <strong>내비게이션 앱의 전 영역</strong>을 다루고,
+      OpenGL 지도 렌더링과 C++ 내비게이션 엔진부터 검색·경로 안내까지 <strong>내비게이션 앱의 전 영역</strong>을 다루고,
       그 위에 화물 오더 플랫폼을 더해 <strong>오더 수량 업계 2위의 화물정보망</strong>으로 키웠습니다.
     </div>
   </header>
@@ -240,7 +240,7 @@
         <div class="hk-t">가입자 21만 내비게이션 앱의 안드로이드 개발을 <strong>3년간 리딩</strong></div>
         <ul>
           <li>입사 6개월 만에 앱 전체를 위임받아 <strong>설계·개발·배포·운영 전 과정을 책임</strong></li>
-          <li>지도 렌더링(OpenGL ES) · C++ 경로 엔진(JNI) · 검색 · 경로 안내 — <strong>내비게이션 전 영역</strong> 담당</li>
+          <li>지도 렌더링(OpenGL ES) · C++ 내비게이션 엔진(JNI) · 검색 · 경로 안내 — <strong>내비게이션 전 영역</strong> 담당</li>
           <li>리딩 기간 <strong>DAU 150% 성장(2.5배)</strong> · 3년간 170회+ 릴리즈</li>
         </ul>
       </div>
@@ -268,7 +268,7 @@
     <div class="core">
       <div class="core-item">
         <div class="ct">내비게이션 도메인</div>
-        <div class="cd">화면 대부분을 OpenGL로 직접 그리고, C++ 경로 엔진과 JNI로 통신하며, <strong>주행 중 끊기면 안 되는 실시간 안내</strong>를 3년간</div>
+        <div class="cd">지도를 OpenGL로 직접 그리고, C++ 내비게이션 엔진 안까지 들어가 고치며, <strong>주행 중 끊기면 안 되는 실시간 안내</strong>를 3년간</div>
       </div>
       <div class="core-item">
         <div class="ct">동시성 문제 해결</div>
@@ -280,7 +280,7 @@
       </div>
       <div class="core-item">
         <div class="ct">레거시 코드 현대화</div>
-        <div class="cd">신규 기능·프로토콜 수정은 Kotlin·코루틴 위주로, 레거시는 수정 빈도 기준 순차 전환 — <strong>Kotlin 비율 52%</strong>, 회귀 0건</div>
+        <div class="cd">Java로 만들어진 앱을 운영과 병행해 <strong>Kotlin 52%까지</strong> — 신규·프로토콜 수정은 코루틴 위주, 레거시는 수정 빈도 기준 순차 전환</div>
       </div>
       <div class="core-item">
         <div class="ct">앱–웹–서버 경계 확장</div>
@@ -395,28 +395,28 @@
         </div>
         <div class="deep-item">
           <div class="dt"><span class="pin"></span><span class="txt">운영을 멈추지 않고 레거시를 Kotlin · 코루틴으로</span><span class="type">코드 품질</span></div>
-          <div class="res">전면 재작성 없이 <b>Kotlin 비율 52%</b> — 서비스 운영과 병행하면서 회귀 0건</div>
+          <div class="res">전면 재작성 없이 <b>Java 앱을 Kotlin 52%까지</b> — 서비스를 운영하면서</div>
           <ul>
             <li><strong>한 번에 새로 짤 수는 없었다</strong> — 3년간 약 1,130개 파일이 쌓인 대부분 콜백 기반 Java 코드베이스. 전면 재작성은 리스크가 크고, 방치하면 유지보수 비용만 계속 느는 상황</li>
             <li><strong>기준을 나눴다</strong> — 신규 기능을 만들거나 기존 네트워크 프로토콜을 수정할 때는 코루틴 위주로, 손대지 않는 레거시 콜백은 그대로</li>
             <li><strong>수정할 코드에 콜백이 중첩돼 있으면 함께 전환</strong> — 콜백 기반이던 구글 로그인은 Credential Manager 전환과 함께 Firebase의 Task를 await()로 감싸 suspend 흐름으로 정리</li>
             <li><strong>신규·수정 API는 처음부터 suspend function</strong> — 포인트·다중경유지 상태 조회 등</li>
             <li><strong>Kotlin 전환도 같은 기준</strong> — 신규 개발은 전부 Kotlin, 레거시는 자주 손대는 코드부터 포팅해 수정할 때마다 null 안전성 확보</li>
-            <li><strong>뷰 참조 방식도 함께 현대화</strong> — 269개 클래스를 ViewBinding·DataBinding으로 전환해 화면 오류를 빌드 시점에 검출</li>
+            <li><strong>뷰 참조 방식도 함께 현대화</strong> — Kotlin synthetic 지원이 끊겨 앱 전역의 뷰 접근을 ViewBinding·DataBinding으로 옮겨야 했다. 한 번에 갈아엎지 않고 화면 단위로 5개월에 나눠 진행</li>
           </ul>
         </div>
         <div class="deep-item">
           <div class="dt"><span class="pin"></span><span class="txt">로그에 안 잡히는 크래시를 C++ · 렌더링 계층에서 해결</span><span class="type">내비게이션 도메인</span></div>
           <div class="res">크래시프리율 <b>99.8%</b>를 받치는 기반 — 원인이 있는 계층에서 근본 해결</div>
           <ul>
-            <li><strong>왜 안 잡혔나</strong> — 화면 대부분을 OpenGL로 직접 그리고 경로 탐색·맵매칭이 C++ 엔진에서 도는 앱이라, 크래시가 Kotlin 스택트레이스에 남지 않는 계층에서 발생</li>
+            <li><strong>왜 안 잡혔나</strong> — 지도 렌더링과 경로 탐색·맵매칭이 모두 C++ 엔진에서 도는 앱이라, 크래시가 Kotlin 스택트레이스에 남지 않는 계층에서 발생</li>
             <li><strong>특정 GPU(Adreno)에서만 터지던 지도 크래시</strong> — 렌더링 방식이 원인이어서 client vertex array를 VBO로 마이그레이션해 근본 해결</li>
             <li><strong>use-after-free</strong> — 렌더 스레드가 경로 정점 배열을 읽는 동안 워커 스레드가 그 배열을 해제·교체하던 문제를 정점 배열 전용 락으로 차단</li>
             <li><strong>shared_ptr refcount 레이스</strong> — 맵매칭의 대입을 std::move로 바꾸고 진입점에 lock_guard를 걸어 해결</li>
             <li><strong>double-free</strong> — 워커 스레드가 중복 생성되던 것을 초기화 재진입 가드로 차단</li>
             <li><strong>락 범위는 최소화</strong> — 넓게 걸면 프레임이 끊기기 때문에 의도적으로 좁게 설계</li>
             <li><strong>C++ 계층의 Protocol Buffers</strong> — 경로 응답을 파싱하는 구간의 공유 변수를 제거·분리해 탐색 스레드 간 데이터 불일치를 없앰</li>
-            <li><strong>JNI 경계</strong> — 네이티브 워커 스레드가 JVM으로 콜백할 때의 스레드 어태치 생명주기(GetEnv → AttachCurrentThread → DetachCurrentThread)까지 직접 처리</li>
+            <li><strong>JNI 양방향 호출</strong> — Kotlin이 엔진을 부르고 엔진이 다시 JVM을 콜백하는 구조라, 그 구간의 스레드 어태치 생명주기(GetEnv → AttachCurrentThread → DetachCurrentThread)까지 직접 처리</li>
           </ul>
         </div>
         <div class="deep-item">
@@ -499,7 +499,7 @@
         <div class="group">
           <h4><span class="pin"></span>길안내 · 내비게이션<span class="type">기존 서비스 확장</span></h4>
           <ul>
-            <li><strong>1t 전용경로</strong> — 일반 화물 경로와 1t 전용 경로 동시 탐색·비교, C++ 경로 엔진과의 JNI 경계 직접 처리 (상단 대표 작업 '지도 렌더링 · 경로 엔진')</li>
+            <li><strong>1t 전용경로</strong> — 일반 화물 경로와 1t 전용 경로 동시 탐색·비교, C++ 내비게이션 엔진과 JNI로 주고받는 구간 직접 처리 (상단 대표 작업 '로그에 안 잡히는 크래시를 C++ · 렌더링 계층에서 해결')</li>
             <li><strong>트럭 특화 안내</strong> — 높이·중량·위험물 제한 도로 회피와 회피 이유·구간단속 안내</li>
             <li><strong>도착예정알림 · 위치 공유</strong> — 도착 예정 시간과 기사 위치를 상대방에게 공유</li>
             <li><strong>유도선 색상 안내</strong> — 교차로 진행 방향 유도선을 색상으로 직관화</li>
@@ -539,11 +539,11 @@
         <div class="group">
           <h4><span class="pin"></span>고도화 · 전면 개편<span class="type">Before → After</span></h4>
           <ul>
-            <li><strong>오더 화면 대개편</strong> — 스크롤만 긴 단일 오더 목록 → 지도에서 고르는 '오더지도' + 조건으로 찾는 '오더리스트' 구조로 재설계, 하단 메뉴 5탭 → 4탭 동시 개편. 앱에서 가장 사용량이 많은 핵심 화면을 회귀 없이 약 10일 만에 교체</li>
+            <li><strong>오더 화면 대개편</strong> — 스크롤만 긴 단일 오더 목록 → 지도에서 고르는 '오더지도' + 조건으로 찾는 '오더리스트' 구조로 재설계, 하단 메뉴 5탭 → 4탭 동시 개편. 앱에서 가장 사용량이 많은 핵심 화면을 약 10일 만에 단계적으로 교체</li>
             <li><strong>아틀란톡 웹뷰 → 네이티브 전면 전환</strong> — 느리고 이질적인 웹 화면 → 목록·상세·댓글까지 앱다운 반응 속도의 네이티브 화면</li>
             <li><strong>메인화면 웹뷰 → 네이티브 뷰 전환</strong> — 앱 첫인상인 메인화면의 로딩 속도·일관성 개선</li>
-            <li><strong>레거시 Java → Kotlin 점진 전환</strong> — 신규 개발은 전부 Kotlin, 레거시는 수정이 잦은 코드부터 순차 포팅해 null 안전성 확보. <span class="hl">Kotlin 비율 52%까지 확대</span>, 운영 병행 회귀 0 (상단 대표 작업 '레거시 코드베이스 현대화')</li>
-            <li><strong>뷰 참조 방식 전면 현대화</strong> — 실행 중에야 발견되던 화면 오류를 빌드 시점에 잡도록 269개 클래스를 ViewBinding·DataBinding으로 전환, 서비스 운영과 병행해 회귀 없이 완료</li>
+            <li><strong>레거시 Java → Kotlin 점진 전환</strong> — 신규 개발은 전부 Kotlin, 레거시는 수정이 잦은 코드부터 순차 포팅해 null 안전성 확보. <span class="hl">Java로 만들어진 앱을 Kotlin 52%까지</span> (상단 대표 작업 '레거시 코드베이스 현대화')</li>
+            <li><strong>뷰 참조 방식 전면 현대화</strong> — Kotlin synthetic 지원 종료로 앱 전역의 뷰 접근을 ViewBinding·DataBinding으로 이전. 운영과 병행이라 화면 단위로 5개월에 나눠 진행</li>
           </ul>
         </div>
         <div class="group">
