@@ -390,7 +390,7 @@
             <li><strong>수정할 코드에 콜백이 중첩돼 있으면 함께 전환</strong> — 콜백 기반이던 구글 로그인은 Credential Manager 전환과 함께 Firebase의 Task를 await()로 감싸 suspend 흐름으로 정리</li>
             <li><strong>신규·수정 API는 처음부터 suspend function</strong> — 포인트·다중경유지 상태 조회 등</li>
             <li><strong>Kotlin 전환도 같은 기준</strong> — 신규 개발은 전부 Kotlin, 레거시는 자주 손대는 코드부터 포팅해 수정할 때마다 null 안전성 확보</li>
-            <li><strong>뷰 참조 방식도 함께 현대화</strong> — Kotlin synthetic 지원이 끊겨 앱 전역의 뷰 접근을 ViewBinding·DataBinding으로 옮겨야 했다. 한 번에 갈아엎지 않고 화면 단위로 5개월에 나눠 진행</li>
+            <li><strong>뷰 참조 방식도 함께 현대화</strong> — Kotlin synthetic 지원이 끊겨 앱 전역의 뷰 접근을 ViewBinding·DataBinding으로 옮겨야 했다. 화면 단위로 5개월에 나눠 진행</li>
           </ul>
         </div>
         <div class="deep-item">
