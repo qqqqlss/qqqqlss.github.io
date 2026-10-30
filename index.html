@@ -426,12 +426,12 @@
           </ul>
         </div>
         <div class="deep-item">
-          <div class="dt"><span class="pin"></span><span class="txt">출시 다음 날 지표 회귀를 감지해 롤백 — 170회+ 릴리즈 운영</span><span class="type">운영 규율</span></div>
+          <div class="dt"><span class="pin"></span><span class="txt">지표 하락을 감지해 당일 롤백 — 170회+ 릴리즈 운영</span><span class="type">운영 규율</span></div>
           <div class="res">출시 시간대 · 지표 감시 · 롤백 기준을 규칙으로 — <b>문제는 같은 날 안에 되돌리거나 고쳐서 재배포</b></div>
           <ul>
             <li><strong>배포는 오전에 올린다</strong> — 자동 업데이트가 기기 유휴·충전 상태인 새벽에 몰리므로, 대다수에게 퍼지기 전 지표를 확인할 하루를 확보. 문제가 보이면 그날 오후에 고쳐 재출시</li>
-            <li><strong>크래시프리 99.83% → 95% 회귀를 출시 후 지표에서 감지</strong> — 내가 넣은 크래시 방어 패치가 원인</li>
-            <li><strong>하루 안에 롤백</strong> — 감지 당일에 이전 버전으로 되돌리고, 원인을 고쳐 재출시</li>
+            <li><strong>출시 후 크래시프리 99.83% → 95% 하락을 Sentry 알림으로 감지</strong> — 내가 넣은 크래시 방어 패치가 원인</li>
+            <li><strong>당일 롤백</strong> — 감지한 날 이전 버전으로 되돌리고, 원인을 고쳐 재출시</li>
             <li><strong>변경 범위가 크거나 영향을 예측하기 어려우면 단계적 출시</strong> — 일부 사용자에게 먼저 내보내 확인</li>
           </ul>
         </div>
